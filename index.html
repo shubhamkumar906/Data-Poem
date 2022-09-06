@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <link rel="stylesheet" href="cards.css"> -->
+    <link href="{{ url_for('static', path='/cards.css') }}" rel="stylesheet">
+    <!-- <script src="myscripts.js"></script> -->
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+    <script type="text/javascript">
+        var HttpClient = function () {
+            this.get = function (aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function () {
+                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                }
+                anHttpRequest.open("GET", aUrl, true);
+                anHttpRequest.send(null);
+            }
+        }
+        //var theurl = 'http://127.0.0.1:8000/get_all_products';
+        var theurl = 'https://3mntwa.deta.dev/get_all_products';
+        
+        var client = new HttpClient();
+        client.get(theurl, function (response) {
+            var response1 = JSON.parse(response);
+            // alert(response);
+            document.getElementById("title").innerHTML = response1.products[0].title;
+            //document.getElementById("description").innerHTML = response1.products[0].description;
+            document.getElementById("price").innerHTML = response1.products[0].price;
+            document.getElementById("discountPercentage").innerHTML = response1.products[0].discountPercentage;
+            document.getElementById("rating").innerHTML = response1.products[0].rating;
+            document.getElementById("stock").innerHTML = response1.products[0].stock;
+            document.getElementById("brand").innerHTML = response1.products[0].brand;
+            document.getElementById("category").innerHTML = response1.products[0].category;
+            document.getElementById("thumbnail").src = response1.products[0].thumbnail;
+            //document.getElementById("images").innerHTML = response1.products[0].images;
+
+            const arr = []
+            for (let i = 0; i < (response1.products).length; i++) {                     //replace 100 by len(response1.products)
+                arr[i] = response1.products[i];
+            }
+            // console.log(arr[0]);
+            document.getElementById("title2").innerHTML = response1.products[1].title;
+            //document.getElementById("description2").innerHTML = response1.products[1].description;
+            document.getElementById("price2").innerHTML = response1.products[1].price;
+            document.getElementById("discountPercentage2").innerHTML = response1.products[1].discountPercentage;
+            document.getElementById("rating2").innerHTML = response1.products[1].rating;
+            document.getElementById("stock2").innerHTML = response1.products[1].stock;
+            document.getElementById("brand2").innerHTML = response1.products[1].brand;
+            document.getElementById("category2").innerHTML = response1.products[1].category;
+            document.getElementById("thumbnail2").src = response1.products[1].thumbnail;
+
+            document.getElementById("title3").innerHTML = response1.products[2].title;
+            //document.getElementById("description3").innerHTML = response1.products[2].description;
+            document.getElementById("price3").innerHTML = response1.products[2].price;
+            document.getElementById("discountPercentage3").innerHTML = response1.products[2].discountPercentage;
+            document.getElementById("rating3").innerHTML = response1.products[2].rating;
+            document.getElementById("stock3").innerHTML = response1.products[2].stock;
+            document.getElementById("brand3").innerHTML = response1.products[2].brand;
+            document.getElementById("category3").innerHTML = response1.products[2].category;
+            document.getElementById("thumbnail3").src = response1.products[2].thumbnail;
+
+            document.getElementById("title4").innerHTML = response1.products[3].title;
+            //document.getElementById("description4").innerHTML = response1.products[3].description;
+            document.getElementById("price4").innerHTML = response1.products[3].price;
+            document.getElementById("discountPercentage4").innerHTML = response1.products[3].discountPercentage;
+            document.getElementById("rating4").innerHTML = response1.products[3].rating;
+            document.getElementById("stock4").innerHTML = response1.products[3].stock;
+            document.getElementById("brand4").innerHTML = response1.products[3].brand;
+            document.getElementById("category4").innerHTML = response1.products[3].category;
+            document.getElementById("thumbnail4").src = response1.products[3].thumbnail;
+        }); 
+        
+        
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="#default" class="logo">DataPoem Store : All In One Store</a>
+        <div class="header-right">
+          <a class="active" href="#home">Home</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img id="thumbnail" src="" alt="Avatar" width="200" height="200">
+                <div class="container">
+                    <b><h4 id="title"></h4></b>
+                    <!-- <p>Description :</p><p id="description"></p><br> -->
+                    <p>Price :</p><p id="price"></p><br>
+                    <p>Discount :</p><p id="discountPercentage"></p><br>
+                    <p>Rating :</p><p id="rating"></p><br>
+                    <p>Stock :</p><p id="stock"></p><br>
+                    <p>Brand :</p><p id="brand"></p><br>
+                    <p>Category :</p><p id="category"></p><br>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img id="thumbnail2" src="" alt="Avatar" width="200" height="200">
+                <div class="container">
+                    <b><h4 id="title2"></h4></b>
+                    <!-- <p>Description :</p><p id="description2"></p><br> -->
+                    <p>Price :</p><p id="price2"></p><br>
+                    <p>Discount :</p><p id="discountPercentage2"></p><br>
+                    <p>Rating :</p><p id="rating2"></p><br>
+                    <p>Stock :</p><p id="stock2"></p><br>
+                    <p>Brand :</p><p id="brand2"></p><br>
+                    <p>Category :</p><p id="category2"></p><br>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img id="thumbnail3" src="" alt="Avatar" width="200" height="200">
+                <div class="container">
+                    <b><h4 id="title3"></h4></b>
+                    <!-- <p>Description :</p><p id="description3"></p><br> -->
+                    <p>Price :</p><p id="price3"></p><br>
+                    <p>Discount :</p><p id="discountPercentage3"></p><br>
+                    <p>Rating :</p><p id="rating3"></p><br>
+                    <p>Stock :</p><p id="stock3"></p><br>
+                    <p>Brand :</p><p id="brand3"></p><br>
+                    <p>Category :</p><p id="category3"></p><br>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img id="thumbnail4" src="" alt="Avatar" width="200" height="200">
+                <div class="container">
+                    <b><h4 id="title4"></h4></b>
+                    <!-- <p>Description :</p><p id="description4"></p><br> -->
+                    <p>Price :</p><p id="price4"></p><br>
+                    <p>Discount :</p><p id="discountPercentage4"></p><br>
+                    <p>Rating :</p><p id="rating4"></p><br>
+                    <p>Stock :</p><p id="stock4"></p><br>
+                    <p>Brand :</p><p id="brand4"></p><br>
+                    <p>Category :</p><p id="category4"></p><br>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <!-- <li class="list-inline-item"><a href="#">Home</a></li> -->
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <!-- <li class="list-inline-item"><a href="#">About</a></li> -->
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Company Name © 2018</p>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+    
+</body>
+
+</html>
