@@ -24,7 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# var_url = 'mongodb+srv://shubham3408:Ab167501026*@cluster0.d4acmgn.mongodb.net/?retryWrites=true&w=majority'
+# var_url = 'mongodb+srv://shubham3408:123456@cluster0.d4acmgn.mongodb.net/?retryWrites=true&w=majority'
 
 # client = MongoClient(var_url)
 # mydb = client['DataPoem']
